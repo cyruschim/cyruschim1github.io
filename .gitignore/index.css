@@ -1,0 +1,27 @@
+h1{
+  color: rgb(128, 0, 0);
+  font-size:16px;
+}
+
+#about {
+  background: white;
+}
+
+body {
+  background: #95DEE8;
+    font-size: 20px;
+}
+
+.container{
+  margin: 20px;
+  padding: 20px;
+}
+.small-continer{
+  min-height: 50vh;
+  padding-top: 30vh;
+  text-aligh: center;
+  list-style-position: inside;
+  background: white;
+}
+
+}
