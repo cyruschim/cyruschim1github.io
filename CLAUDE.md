@@ -14,6 +14,11 @@ Read these before doing IA, sitemap, page, or navigation work:
 - `docs/gosabah-brand-guideline.md` — the proposed CI system: brand story, logo lockups/clear-space/
   minimum sizes, colour palette (hex values + roles), typography (Sora / Plus Jakarta Sans / DM
   Serif Display / Noto Sans fallback). Distilled from the client's brand identity manual PDF.
+- `docs/reference/` — a homepage layout the user likes (built by another AI under the old
+  VisitSabah.net name) whose **header and footer structure is to be followed for all future
+  builds**. See `docs/reference/README.md` first — it flags that this file's own colour/type/logo
+  are a different provisional system and must be swapped for the approved brand CI above, not
+  reused as-is.
 
 **Not yet supplied:** vector master logo artwork (only a raster screenshot has been interpreted so
 far — hex values are sampled, not confirmed), a rights-cleared Sabah photo/video library, or a
