@@ -51,3 +51,114 @@ if (dismissBtn) {
     alertBar.style.display = 'none';
   });
 }
+
+// ==========================================
+// HERO SLIDER — Five Wonders
+// ==========================================
+(function heroSlider() {
+  const hero = document.querySelector('.hero');
+  const slides = Array.from(document.querySelectorAll('.hero-slide'));
+  const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+  const pauseBtn = document.querySelector('.carousel-pause');
+  const wonderLabel = document.getElementById('wonderLabel');
+  const eyebrow = document.getElementById('heroEyebrow');
+  if (!hero || !slides.length || !dots.length) return;
+
+  const ACCENT_VARS = {
+    olive: 'var(--rainforest-olive)',
+    teal: 'var(--sea-route-teal)',
+    earth: 'var(--borneo-earth)',
+    orange: 'var(--journey-orange)',
+  };
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTOPLAY_MS = 6500;
+
+  let index = slides.findIndex((s) => s.classList.contains('active'));
+  if (index < 0) index = 0;
+  let playing = !prefersReducedMotion;
+  let timer = null;
+
+  function applySlide(i) {
+    slides.forEach((s, si) => s.classList.toggle('active', si === i));
+    dots.forEach((d, di) => {
+      const active = di === i;
+      d.classList.toggle('active', active);
+      d.setAttribute('aria-selected', String(active));
+      d.tabIndex = active ? 0 : -1;
+    });
+
+    const slide = slides[i];
+    const wonder = slide.dataset.wonder || '';
+    const place = slide.dataset.place || '';
+    const accentKey = slide.dataset.accent;
+
+    if (wonderLabel) wonderLabel.textContent = `${wonder} — ${place}`;
+    if (eyebrow && accentKey && ACCENT_VARS[accentKey]) {
+      hero.style.setProperty('--wonder-accent', ACCENT_VARS[accentKey]);
+    }
+  }
+
+  function goTo(i, { restart = true } = {}) {
+    index = (i + slides.length) % slides.length;
+    applySlide(index);
+    if (restart) restartTimer();
+  }
+
+  function next() { goTo(index + 1); }
+
+  function startTimer() {
+    if (!playing) return;
+    stopTimer();
+    timer = window.setInterval(next, AUTOPLAY_MS);
+  }
+
+  function stopTimer() {
+    if (timer) { window.clearInterval(timer); timer = null; }
+  }
+
+  function restartTimer() {
+    if (playing) startTimer();
+  }
+
+  function setPlaying(next) {
+    playing = next;
+    if (pauseBtn) {
+      pauseBtn.setAttribute('aria-pressed', String(!playing));
+      pauseBtn.setAttribute('aria-label', playing ? 'Pause slideshow' : 'Play slideshow');
+      pauseBtn.textContent = playing ? '❚❚' : '▶';
+    }
+    if (playing) startTimer(); else stopTimer();
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goTo(i));
+  });
+
+  // Arrow-key navigation across the tablist, per ARIA carousel/tablist pattern
+  const dotsContainer = document.querySelector('.carousel-dots');
+  if (dotsContainer) {
+    dotsContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); dots[index].focus(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); dots[index].focus(); }
+    });
+  }
+
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', () => setPlaying(!playing));
+  }
+
+  // Pause on hover/focus within the hero so a reader isn't fighting the slide change
+  hero.addEventListener('mouseenter', stopTimer);
+  hero.addEventListener('mouseleave', restartTimer);
+  hero.addEventListener('focusin', stopTimer);
+  hero.addEventListener('focusout', restartTimer);
+
+  // Pause when the tab isn't visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopTimer(); else restartTimer();
+  });
+
+  applySlide(index);
+  setPlaying(playing);
+})();

@@ -93,41 +93,83 @@
 <!-- ==========================================
      SECTION 1: CINEMATIC DESTINATION HERO
      ========================================== -->
-<section class="hero" aria-label="Destination hero">
+<section class="hero" aria-roledescription="carousel" aria-label="Sabah's Five Wonders">
   <div class="hero-slides">
-    <!-- Slide 1: Peak -->
-    <div class="hero-slide active">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#3F562A,#176B6C);min-height:820px;display:flex;align-items:center;justify-content:center;">
-        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity="0.15">
-          <path d="M20 180L80 40L100 80L120 20L140 70L180 180Z" fill="white"/>
+    <!-- Slide 1: Peak — topographic contour rings -->
+    <div class="hero-slide active" data-wonder="Peak" data-place="Mount Kinabalu" data-accent="olive">
+      <div class="hero-bg hero-bg-peak">
+        <svg class="hero-motif" viewBox="0 0 640 640" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+          <path d="M320 90 220 560" stroke="white" stroke-width="1.5" opacity=".5"/>
+          <path d="M320 90 420 560" stroke="white" stroke-width="1.5" opacity=".5"/>
+          <path d="M320 90 130 560" stroke="white" stroke-width="1" opacity=".3"/>
+          <path d="M320 90 510 560" stroke="white" stroke-width="1" opacity=".3"/>
+          <ellipse cx="320" cy="230" rx="60" ry="16" stroke="white" stroke-width="1.5" opacity=".55"/>
+          <ellipse cx="320" cy="320" rx="130" ry="30" stroke="white" stroke-width="1.5" opacity=".4"/>
+          <ellipse cx="320" cy="420" rx="210" ry="42" stroke="white" stroke-width="1.5" opacity=".28"/>
+          <ellipse cx="320" cy="530" rx="290" ry="54" stroke="white" stroke-width="1.5" opacity=".16"/>
         </svg>
       </div>
       <div class="hero-overlay"></div>
     </div>
-    <!-- Slide 2: Deep -->
-    <div class="hero-slide">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#42281A,#F28C48);min-height:820px;"></div>
+    <!-- Slide 2: Deep — bathymetric current lines -->
+    <div class="hero-slide" data-wonder="Deep" data-place="Sipadan &amp; the Coral Triangle" data-accent="teal">
+      <div class="hero-bg hero-bg-deep">
+        <svg class="hero-motif" viewBox="0 0 640 640" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <path d="M-20 180Q160 140 320 180T660 180" stroke="white" stroke-width="1.5" opacity=".45"/>
+          <path d="M-20 280Q160 230 320 280T660 280" stroke="white" stroke-width="1.5" opacity=".35"/>
+          <path d="M-20 380Q160 440 320 380T660 380" stroke="white" stroke-width="1.5" opacity=".28"/>
+          <path d="M-20 480Q160 420 320 480T660 480" stroke="white" stroke-width="1.5" opacity=".2"/>
+          <path d="M-20 80Q160 40 320 80T660 80" stroke="white" stroke-width="1" opacity=".18"/>
+        </svg>
+      </div>
       <div class="hero-overlay"></div>
     </div>
-    <!-- Slide 3: Wild -->
-    <div class="hero-slide">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#28371A,#3F562A);min-height:820px;"></div>
+    <!-- Slide 3: Wild — layered rainforest canopy -->
+    <div class="hero-slide" data-wonder="Wild" data-place="Kinabatangan River" data-accent="olive">
+      <div class="hero-bg hero-bg-wild">
+        <svg class="hero-motif" viewBox="0 0 640 640" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+          <path d="M-20 560Q60 460 140 540T300 520T460 550T660 480V640H-20Z" stroke="white" stroke-width="1.5" opacity=".22" fill="white" fill-opacity=".04"/>
+          <path d="M-20 500Q90 380 180 480T360 440T540 490T660 400" stroke="white" stroke-width="1.5" opacity=".3"/>
+          <path d="M-20 420Q120 280 260 400T480 360T660 300" stroke="white" stroke-width="1.5" opacity=".4"/>
+          <path d="M-20 320Q160 180 320 300T660 200" stroke="white" stroke-width="1" opacity=".22"/>
+        </svg>
+      </div>
       <div class="hero-overlay"></div>
     </div>
-    <!-- Slide 4: Ancient -->
-    <div class="hero-slide">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0F4A4A,#176B6C);min-height:820px;"></div>
+    <!-- Slide 4: Ancient — rock strata and cave arch -->
+    <div class="hero-slide" data-wonder="Ancient" data-place="Danum Valley" data-accent="earth">
+      <div class="hero-bg hero-bg-ancient">
+        <svg class="hero-motif" viewBox="0 0 640 640" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <path d="M-20 150H660" stroke="white" stroke-width="1" opacity=".2"/>
+          <path d="M-20 230H660" stroke="white" stroke-width="1" opacity=".26"/>
+          <path d="M-20 310H660" stroke="white" stroke-width="1" opacity=".32"/>
+          <path d="M-20 390H660" stroke="white" stroke-width="1" opacity=".26"/>
+          <path d="M-20 470H660" stroke="white" stroke-width="1" opacity=".2"/>
+          <path d="M220 640C220 480 260 380 320 380C380 380 420 480 420 640" stroke="white" stroke-width="1.5" opacity=".5"/>
+        </svg>
+      </div>
       <div class="hero-overlay"></div>
     </div>
-    <!-- Slide 5: Culture -->
-    <div class="hero-slide">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#2C1A10,#42281A);min-height:820px;"></div>
+    <!-- Slide 5: Culture — woven lattice -->
+    <div class="hero-slide" data-wonder="Culture" data-place="Sabah's Living Communities" data-accent="orange">
+      <div class="hero-bg hero-bg-culture">
+        <svg class="hero-motif" viewBox="0 0 640 640" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <g stroke="white" stroke-width="1" opacity=".3">
+            <path d="M-40 60 660 640"/><path d="M40 -20 660 560"/><path d="M120 -20 660 480"/>
+            <path d="M-40 220 420 660"/><path d="M-40 380 260 660"/><path d="M-40 -140 780 620"/>
+          </g>
+          <g stroke="white" stroke-width="1" opacity=".22">
+            <path d="M660 60-40 640"/><path d="M600 -20-20 560"/><path d="M520-20-100 480"/>
+            <path d="M660 220 200 660"/><path d="M660 380 380 660"/>
+          </g>
+        </svg>
+      </div>
       <div class="hero-overlay"></div>
     </div>
   </div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">The Official Sabah Visitor Experience Gateway</span>
+    <span class="hero-eyebrow" id="heroEyebrow">The Official Sabah Visitor Experience Gateway</span>
     <h1>Sabah. Peak. Deep. Wild. Ancient. Culture.</h1>
     <p class="hero-description">Journey from Mount Kinabalu and coral seas to wildlife-rich rivers, ancient rainforests and Sabah's living cultures. Discover what calls you, then plan with trusted visitor information.</p>
     <div class="hero-ctas">
@@ -138,17 +180,17 @@
     <p class="hero-trust">Official destination inspiration, planning guidance and recognised tourism services.</p>
   </div>
 
-  <span class="wonder-label">Peak — Mount Kinabalu</span>
+  <span class="wonder-label" id="wonderLabel" aria-live="polite">Peak — Mount Kinabalu</span>
 
   <div class="hero-carousel">
-    <div class="carousel-dots" role="tablist" aria-label="Hero slides">
-      <button class="carousel-dot active" role="tab" aria-label="Slide 1: Peak"></button>
-      <button class="carousel-dot" role="tab" aria-label="Slide 2: Deep"></button>
-      <button class="carousel-dot" role="tab" aria-label="Slide 3: Wild"></button>
-      <button class="carousel-dot" role="tab" aria-label="Slide 4: Ancient"></button>
-      <button class="carousel-dot" role="tab" aria-label="Slide 5: Culture"></button>
+    <div class="carousel-dots" role="tablist" aria-label="Choose a Wonder to preview">
+      <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Peak — Mount Kinabalu" data-index="0"></button>
+      <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Deep — Sipadan and the Coral Triangle" data-index="1"></button>
+      <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Wild — Kinabatangan River" data-index="2"></button>
+      <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Ancient — Danum Valley" data-index="3"></button>
+      <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Culture — Sabah's living communities" data-index="4"></button>
     </div>
-    <button class="carousel-pause" aria-label="Pause slideshow">❚❚</button>
+    <button class="carousel-pause" aria-label="Pause slideshow" aria-pressed="false">❚❚</button>
   </div>
 
   <div class="scroll-cue">

@@ -385,6 +385,31 @@ h1, h2, h3, h4 {
   );
 }
 
+/* Hero backgrounds — CI-derived gradients carrying a topographic line-art
+   motif per Wonder. Placeholder for real photography (see docs/gosabah-
+   brand-guideline.md §6); deliberately non-photographic so it never reads
+   as a fabricated photo of a real place. */
+.hero-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 820px;
+  overflow: hidden;
+}
+
+.hero-bg-peak    { background: linear-gradient(160deg, #1B2A12 0%, #3F562A 55%, #176B6C 100%); }
+.hero-bg-deep    { background: linear-gradient(160deg, #0A2C2D 0%, #176B6C 55%, #3E9C9D 100%); }
+.hero-bg-wild    { background: linear-gradient(160deg, #16210D 0%, #28371A 55%, #3F562A 100%); }
+.hero-bg-ancient { background: linear-gradient(160deg, #1C1108 0%, #2C1A10 55%, #42281A 100%); }
+.hero-bg-culture { background: linear-gradient(160deg, #24140B 0%, #42281A 55%, #F28C48 100%); }
+
+.hero-motif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -408,6 +433,16 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   margin-bottom: var(--space-md);
   border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wonder-accent, var(--journey-orange));
+  transition: background var(--transition-slow);
+  flex-shrink: 0;
 }
 
 .hero h1 {
@@ -514,26 +549,42 @@ h1, h2, h3, h4 {
 }
 
 .carousel-dot {
+  /* 44px tappable height with a slim 3px visual bar, per WCAG target-size guidance */
   width: 32px;
-  height: 3px;
-  background: rgba(255,255,255,0.4);
+  height: 44px;
+  padding: 0;
+  background: none;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: width var(--transition-base);
+}
+
+.carousel-dot::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
   border-radius: 2px;
-  transition: all var(--transition-base);
+  background: rgba(255,255,255,0.4);
+  transition: background var(--transition-base);
 }
 
 .carousel-dot.active {
-  background: var(--journey-orange);
   width: 48px;
+}
+
+.carousel-dot.active::after {
+  background: var(--journey-orange);
 }
 
 .carousel-pause {
   background: none;
   border: 1px solid rgba(255,255,255,0.4);
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -541,6 +592,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   font-size: 0.625rem;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .carousel-pause:hover {
@@ -2401,7 +2453,12 @@ h1, h2, h3, h4 {
   .mobile-menu-btn { display: block; }
 
   .hero {
-    min-height: 600px;
+    min-height: 720px;
+    padding-bottom: 76px; /* reserves room for the pinned wonder-label + carousel row below */
+  }
+
+  .hero-trust {
+    display: none; /* supplementary microcopy; eyebrow already establishes official status */
   }
 
   .hero h1 {
@@ -2409,10 +2466,10 @@ h1, h2, h3, h4 {
   }
 
   .hero-content {
-    position: absolute;
-    bottom: 80px;
-    left: var(--space-md);
-    right: var(--space-md);
+    /* Flows as a normal centered flex child instead of bottom-pinned, so its
+       length can't collide with the wonder-label/carousel row (see below). */
+    position: relative;
+    padding: 0 var(--space-md);
   }
 
   .hero-ctas {
@@ -2424,8 +2481,15 @@ h1, h2, h3, h4 {
     justify-content: center;
   }
 
+  .wonder-label {
+    bottom: 60px;
+    right: var(--space-md);
+    left: var(--space-md);
+    text-align: right;
+  }
+
   .hero-carousel {
-    bottom: 80px;
+    bottom: 16px;
     right: var(--space-md);
   }
 
