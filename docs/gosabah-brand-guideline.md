@@ -101,16 +101,65 @@ Minimum clear space = **1× the height of the "G" in "GO"** on all four sides. W
 
 ⚠️ Type recommendations are a *proposed open-source working system* — confirm local-language coverage, licensing and live UI rendering before production lock.
 
-## 6. Photography (limited guidance in this document)
+## 6. Photography
 
-This CI document does **not** contain a full photo library or an explicit "use this / never use that"
-image set — only one placement rule: **keep the logo's clear-space area free of faces, high-contrast
-edges, horizon lines and important destination details.**
+The brand CI PDF itself contains only one placement rule: **keep the logo's clear-space area free of
+faces, high-contrast edges, horizon lines and important destination details.** Style direction below
+was given directly during this build (Sept 2026) and supersedes that gap.
 
-Broader photography *governance* rules (Sabah-must-be-authentic, no generic stock, rights tracking,
-dignified/consented representation, no unsafe wildlife proximity) come from the separate IA
-submission paper — see `docs/gosabah-project-brief.md` §9. If a dedicated photo do/don't list or
-image library still exists elsewhere, it hasn't reached this repo yet.
+### Style direction — what to use
+
+- **Golden/blue hour light**, not flat midday sun — light with direction and warmth.
+- **Confident, considered colour grading** — rich, lively colour that still reads as a real place,
+  not an unedited flat/dull straight-out-of-camera shot.
+- **Deliberate angle and composition** — a chosen viewpoint, not a snapshot with no framing intent.
+- **Immediate impact** — the image should create anticipation for Sabah on first glance, not sit flat.
+- **Living subjects (wildlife, people) must be tack-sharp and clearly the focal point** — the
+  surrounding environment can carry mood/atmosphere, but the animal or person itself should be in
+  crisp focus, not lost in soft-focus/bokeh ambiguity.
+
+### Style direction — what to avoid
+
+- Flat, dull, harsh midday light with no golden-hour warmth.
+- Unedited, uncorrected, flat-colour images with no grading.
+- No compositional intent — snapshots taken from an arbitrary angle.
+- (Carried over from the IA submission paper, §21) Overprocessed HDR or fake teal-orange grading —
+  "lively and well-graded" is not the same as "cranked and artificial."
+
+### Hard requirements — non-negotiable regardless of style
+
+These come from the project's own media-governance rules (`docs/gosabah-project-brief.md` §9) and
+were reconfirmed by two batches of example images sent during this build that violated them:
+
+- **Every image must be verifiably Sabah.** Two of the reference examples given were not Sabah at
+  all — a temple that is Doi Inthanon, Thailand, and a limestone-cliff lagoon that is Coron/Palawan,
+  Philippines. Recognisable non-Sabah landmarks or landscapes must never stand in for Sabah, no
+  matter how visually appealing.
+- **No AI-generated imagery representing real people, culture or places.** One example was
+  explicitly labelled "AI-generated" — a fabricated depiction of a traditional dance/community. This
+  is a hard no: inventing a scene of a living, real, consent-requiring culture is inaccurate,
+  undignified, and exactly what the governance rules exist to prevent for an official government
+  tourism platform.
+- **No watermarked or unlicensed stock.** Several examples carried a visible "Magnific" (AI
+  upscaling tool) watermark — unverified provenance, unusable regardless of how it looks.
+- Every asset still needs the full rights record from §9: creator, rights owner, licence,
+  attribution, permitted uses, expiry/withdrawal condition.
+- **Species accuracy matters as much as location.** A third batch of examples included a Malayan
+  tapir and a spider monkey as "good style" references — both fine as *style-only* references (sharp
+  focus, natural light) but neither is a Sabah/Bornean species: tapirs in Malaysia range Peninsular
+  Malaysia/Sumatra, not Borneo; spider monkeys exist only in Central/South America. Real Sabah
+  wildlife imagery must show actual Bornean species — orangutan, proboscis monkey, Bornean pygmy
+  elephant, sun bear, hornbill, etc. — never a visually-similar substitute from elsewhere. The same
+  batch also included another likely non-Sabah overwater-bungalow cove (Coron/Palawan-style
+  architecture) and another "Magnific"-watermarked sunset — same two problems as before, still
+  disqualifying regardless of how well they match the style direction.
+
+### Sourcing
+
+Sabah Tourism Board's own published photo library was flagged as a source
+(`media.borneophotos.com`) but this session's sandbox network policy blocks that domain outright —
+not a retryable failure. To use it: either the user fetches/downloads specific images and uploads
+them as files (as with the PDFs), or a session with that domain allowlisted pulls them in.
 
 ## 7. Not yet locked (explicitly flagged in the source document)
 
